@@ -1,0 +1,13 @@
+stages:
+  - build
+
+build_job:
+  stage: build
+  image: openkylin/buildozer:latest
+  script:
+    - pip install --upgrade pip
+    - pip install cython
+    - buildozer android debug
+  artifacts:
+    paths:
+      - bin/*.apk 
